@@ -20,7 +20,11 @@ class EarthquakesAdapter(var list: List<Earthquake>) :
         )
     }
 
-    private val onItemClickListener: ((Earthquake) -> Unit)? = null
+    private var onItemClickListener: ((Earthquake) -> Unit)? = null
+
+    fun setOnClickListener(listener: (Earthquake) -> Unit){
+        onItemClickListener = listener
+    }
     override fun onBindViewHolder(holder: EarthQuakesViewHolder, position: Int) {
         val result = list[position]
 
